@@ -76,43 +76,44 @@ CSS (Cascading style sheets) allows you to provide the basic styling for HTML el
 There are three ways to reference CSS:
 
 1. Include a .css file by using a link tag in the head of your HTML file. <br/>
-	HTML file:
 	
-```html
+	
+	HTML file:	
+		
+	```html
 	<head>
 		<link href="sample.css" />
 	</head>
 	<body>
 		<p id="sampleText">This is sample text</p>
 	</body>
-```
-
-sample.css:
-
-```css
-	#sampletext{
+	```
+	
+	sample.css:
+	
+	```css
+	#sampleText{
 		color: blue;
 	}
-```
+	```
+
+
 2. Include the CSS as an attribute.
 
-```html
+	```html
 	<p style="color: blue;">This is sample text</p>
-```
+	```
 3. Include the CSS in a ``<style>`` tag.
 
-```html
-<head>
-	<style>
-		body {background-color: powderblue;}
-		h1   {color: blue;}
-		p    {color: red;}
-	</style>
-</head>
-```
+	```html
+	<head>
+		<style>
+			body {background-color: powderblue;}
+			h1   {color: blue;}
+			p    {color: red;}
+		</style>
+	</head>
+	```
 
 There are many different properties you can use to style your HTML. You can learn more [here](https://www.w3schools.com/cssref/).
-
-*[HTML]: HyperText Markup Language
-*[CSS}: Cascading Style Sheets
 
