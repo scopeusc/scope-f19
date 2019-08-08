@@ -29,6 +29,8 @@ npm start
 
 Open http://localhost:3000/ in your favorite browser to see your app.
 
+Open up the my-app project you just made in Atom or your preferred editor. Locate the src/App.js file. Change the text inside of the ``<p> </p>`` tags to anything you would like. Navigating back to http://localhost:3000/, you should see your changes automatically reload.
+
 ## HTML & CSS
 
 ### What is HTML?
@@ -60,13 +62,13 @@ Most tags have a start and end tag with the content in between. A few tags, like
 Elements can have attributes which provide additional information about the element and are included in the start tag. They are written as key/value pairs.
 
 ```html
-<a href="http://www.w3schools.com">This is a link</a>
+<a href="http://www.scopeusc.com">This is a link</a>
 ```
 
  OR
  
  ```html
- <img src="w3schools.jpg" width="104" height="142" alt="Alternate Text!"> 
+ <img src="scopelogo.jpg" width="104" height="142" alt="Scope Logo!"> 
  ```
  
 ### What is CSS?
