@@ -29,8 +29,6 @@ npm start
 
 Open http://localhost:3000/ in your favorite browser to see your app.
 
-Open up the my-app project you just made in Atom or your preferred editor. Locate the src/App.js file. Change the text inside of the ``<p> </p>`` tags to anything you would like. Navigating back to http://localhost:3000/, you should see your changes automatically reload.
-
 ## HTML & CSS
 
 ### What is HTML?

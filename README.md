@@ -4,10 +4,12 @@ This is the Scope Spring 2019 GitHub curriculum repository! Here you'll find pro
 
 ### Curriculum Outline
 * [**Lesson 1**](lesson-1) - Environment Setup, HTML & CSS
-* [**Lesson 2**](lesson-2) - JavaScript & React Project Structure
-* [**Lesson 3**](lesson-3) - React
-* [**Lesson 4**](lesson-4) - React
-* [**Lesson 5**](lesson-5) - React
+* [**Lesson 2**](lesson-2) - JavaScript & React Boilerplate Structure
+* [**Lesson 3**](lesson-3) - Tic Tac Toe React Project
+* [**Lesson 4**](lesson-4) - React Project 2
+* [**Lesson 5**](lesson-5) - React Project 3
+* [**Lesson 6**](lesson-6) - Adding Bootstrap
+* [**Lesson 7**](lesson-7) - Adding Node
 
 ### Using This Repo
 To use this repo properly, first follow [lesson 1](lesson-1/README.md) to get Git, Node, React, and the right environment setup on your machine.
