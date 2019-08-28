@@ -176,6 +176,35 @@ class App extends Component {
 }
 ```
 
+Now lets work with multiple components. Create a file in the `src/` directory of your project called `Title.js`. Insert the following into the file:
+
+```
+import React from 'react';
+
+function Title() {
+  return (
+    <div className="Title">
+      <h1> Title component </h1>
+    </div>
+  );
+}
+
+export default Title;
+```
+
+In `App.js`, add the following line at the top of the file:
+
+```
+import Title from './Title.js';
+```
+
+Then in the body of `App.js`, add the following line somewhere in your div tag:
+
+```
+<Title />
+```
+
+You should see the words "Title component" on your web page when you navigate back to localhost. You have successfully added an additional component to your web page. 
 
 
 
