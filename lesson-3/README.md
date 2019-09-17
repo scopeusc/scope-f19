@@ -1,4 +1,4 @@
-# Lesson #4: Metronome Project
+# Lesson #3: Metronome Project
 In this lesson you will build a simple metronome app.
 
 ## Setup
@@ -19,7 +19,7 @@ npm start   # or yarn start
 
 The first thing we’ll do is replace the `App` component with our `Metronome` one. In `index.js`, just replace every occurrence of “App” with “Metronome”.
 
-```
+```js
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Metronome from './Metronome';
@@ -34,7 +34,7 @@ And then create two new files: `src/Metronome.css`, and `src/Metronome.js`.
 
 Start off Metronome.js with a barebones component to verify everything is working:
 
-```
+```js
 import React, { Component } from 'react';
 import './Metronome.css';
 
@@ -52,7 +52,7 @@ Your app should refresh in your browser (localhost:3000) and you should see hi.
 
 Now lets create the UI. This code should create a static button and slider.
 
-```
+```js
 import React, { Component } from 'react';
 import './Metronome.css';
 
@@ -78,7 +78,7 @@ export default Metronome;
 
 Now add the following to `Metronome.css`
 
-```
+```css
 .metronome {
   text-align: center;
   max-width: 375px;
@@ -111,7 +111,7 @@ You won’t be able to change anything yet, because we didn’t implement the on
 
 The metronome’s BPM and whether it is “on” or “off” are good candidates to put in React’s state, so we’ll initialize state in the constructor and then use those variables in the `render` function:
 
-```
+```js
 class Metronome extends Component {
   constructor(props) {
     super(props);
@@ -145,7 +145,7 @@ Even though we’ve introduced state, the app is never changing that state, so n
 
 To make the slider work, we’ll add a handler function called `handleBpmChange` to the class, and pass it as the `onChange` prop to the input, like this:
 
-```
+```js
 class Metronome extends Component {
   // ...
 
@@ -188,7 +188,7 @@ If we’d used a regular function like `handleBpmChange() { ... }`, then the `th
 ## Loading the Audio Files
 Let’s work on getting the “clicks” playing. First we need to import some sounds, and Webpack can do this for us by adding a couple import statements at the top of Metronone.js:
 
-```
+```js
 import click1 from './click1.wav';
 import click2 from './click2.wav';
 ```
@@ -200,7 +200,7 @@ You can download these sounds here:
 
 Then in the constructor, we will create two Audio objects with those files, which we’ll then be able to trigger.
 
-```
+```js
 class Metronome extends React.Component {
   // ...
 

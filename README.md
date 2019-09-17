@@ -7,7 +7,7 @@ This is the Scope Spring 2019 GitHub curriculum repository! Here you'll find pro
 * [**Lesson 2**](lesson-2) - JavaScript & React Boilerplate Structure
 * [**Lesson 3**](lesson-3) - Metronome React Project
 * [**Lesson 4**](lesson-4) - Tic Tac Toe React Project
-* [**Lesson 5**](lesson-5) - React Project 3
+* [**Lesson 5**](lesson-5) - Final React Project
 * [**Lesson 6**](lesson-6) - Adding JQuery and Bootstrap to React
 * [**Lesson 7**](lesson-7) - Firebase Authentication
 

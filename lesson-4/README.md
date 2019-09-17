@@ -1,4 +1,4 @@
-# Lesson #3: Tic Tac Toe React Project 
+# Lesson #4: Tic Tac Toe React Project 
 In this lesson we will continue learning more about React through an interactive tic-tac-toe game.
 
 ## Setup
@@ -30,7 +30,7 @@ cd..
 
 5. Add these three lines to the top of `index.js` in the `src/` folder:
 
-```
+```js
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -50,7 +50,7 @@ To get our feet wet, let’s try passing some data from our Board component to o
 
 In Board’s `renderSquare` method, change the code to pass a prop called value to the Square:
 
-```
+```js
 class Board extends React.Component {
   renderSquare(i) {
     return <Square value={i} />;
@@ -59,7 +59,7 @@ class Board extends React.Component {
 
 Change Square’s `render` method to show that value by replacing `{/* TODO */}` with `{this.props.value}`:
 
-```
+```js
 class Square extends React.Component {
   render() {
     return (
@@ -81,7 +81,7 @@ Congratulations! You’ve just “passed a prop” from a parent Board component
 
 Let’s fill the Square component with an “X” when we click it. First, change the button tag that is returned from the Square component’s render() function to this:
 
-```
+```js
 class Square extends React.Component {
   render() {
     return (
@@ -96,7 +96,7 @@ class Square extends React.Component {
 
 Now we want the Square component to “remember” that it got clicked, and fill it with an “X” mark. We will do this by storing the current value of the Square in this.state, and change it when the Square is clicked. Add a constructor to the class to initialize the state:
 
-```
+```js
 class Square extends React.Component {
   constructor(props) {
     super(props);
@@ -112,7 +112,7 @@ Now we’ll change the Square’s `render` method to display the current state�
 * Replace the `onClick={...}` event handler with `onClick={() => this.setState({value: 'X'})}`.
 * Put the `className` and `onClick` props on separate lines for better readability.
 
-```
+```js
 render() {
     return (
       <button
