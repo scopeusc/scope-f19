@@ -143,7 +143,7 @@ Now your React application is up and running and we can begin adding functionali
 
 Open the App.js file and remove all unnecessary HTML code as shown:
 
-```
+```js
 import React, { Component } from 'react';
 import './App.css';
 
@@ -163,7 +163,7 @@ The content in the render block may look similar to HTML, but it is actually JSX
 
 Now lets add in some variables. A variable is set in JSX by curly braces:
 
-```
+```js
 class App extends Component {
   render() {
     var helloWorld = 'Welcome to Scope Fall 2019';
@@ -178,7 +178,7 @@ class App extends Component {
 
 Now lets work with multiple components. Create a file in the `src/` directory of your project called `Title.js`. Insert the following into the file:
 
-```
+```js
 import React from 'react';
 
 function Title() {
@@ -194,13 +194,13 @@ export default Title;
 
 In `App.js`, add the following line at the top of the file:
 
-```
+```js
 import Title from './Title.js';
 ```
 
 Then in the body of `App.js`, add the following line somewhere in your div tag:
 
-```
+```js
 <Title />
 ```
 
