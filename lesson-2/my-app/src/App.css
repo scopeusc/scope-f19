@@ -31,3 +31,34 @@
     transform: rotate(360deg);
   }
 }
+
+input[type=text] {
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+
+input[type=button], input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 32px;
+  margin: 4px 2px;
+}
+
+input[type=radio]{
+  -webkit-appearance: none;
+
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+}
+
+input:checked {
+  border: 6px solid black;
+}

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import Title from './Title.js'
+import Form from './Form.js'
 
 class App extends Component {
   render() {
+    var helloWorld = 'Welcome to Scope Fall 2019';
     return (
       <div className="App">
-        <h2>Welcome to Scope Fall 2019</h2>
-        <Title />
+        <h2 id >{helloWorld}</h2>
+        <Form />
       </div>
     );
   }

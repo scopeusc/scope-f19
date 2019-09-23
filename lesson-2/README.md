@@ -119,7 +119,7 @@ Open up the my-app project you just made in Atom or your preferred editor. Locat
 
 ```html
 <div className="App">
-      <header className="App-header">
+	<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Hello Scope students!
@@ -132,8 +132,8 @@ Open up the my-app project you just made in Atom or your preferred editor. Locat
         >
           Learn React
         </a>
-      </header>
-    </div>
+	</header>
+</div>
 ```
 
 If you left the terminal running, you should be able to switch over to your browser (http://localhost:3000/) and see the update.
@@ -176,35 +176,155 @@ class App extends Component {
 }
 ```
 
+### Adding more components
+
 Now lets work with multiple components. Create a file in the `src/` directory of your project called `Title.js`. Insert the following into the file:
 
 ```js
-import React from 'react';
+import React, { Component } from 'react';
 
-function Title() {
-  return (
-    <div className="Title">
-      <h1> Title component </h1>
-    </div>
-  );
+class Form extends Component {
+  render(){
+    return (
+      <div className="Form">
+        <h1> Testing form component </h1>
+      </div>
+    );
+  }
 }
 
-export default Title;
+export default Form;
 ```
 
 In `App.js`, add the following line at the top of the file:
 
 ```js
-import Title from './Title.js';
+import Form from './Form.js';
 ```
 
 Then in the body of `App.js`, add the following line somewhere in your div tag:
 
 ```js
-<Title />
+<Form />
 ```
 
-You should see the words "Title component" on your web page when you navigate back to localhost. You have successfully added an additional component to your web page. 
+You should see the words "Testing form component" on your web page when you navigate back to localhost. You have successfully added an additional component to your web page.
+
+
+Let's add a little more to the form component. Replace the current div tag in `Form.js` with the following code:
+
+```
+import React, { Component } from 'react';
+
+class Form extends Component {
+  render(){
+    return (
+      <div className="Form">
+        <form>
+          First name: <br />
+          <input type="text" name="firstname" placeholder="William"/><br />
+          Last name: <br />
+          <input type="text" name="lastname" placeholder="Yang"/><br /><br />
+          I am a:<br />
+          <input type="radio" value="freshman" name="year"/> Freshman<br />
+          <input type="radio" value="sophomore" name="year"/> Sophomore<br />
+          <input type="radio" value="junior" name="year"/> Junior<br />
+          <input type="radio" value="senior" name="year"/> Senior<br /><br />
+          <input type="submit" id="submitbutton" value="Submit" />
+        </form>
+      </div>
+    );
+  }
+}
+
+export default Form;
+```
+As you can see, we added a form with different types of input tags. Text, radio, and submit are common types of html input tags. 
+ 
+
+### Adding some styling
+
+If you look at the top of your `App.js` file, you'll see the following line:
+
+```
+import './App.css';
+```
+
+This imports the css file called `App.css` and uses it for everything rendered in your App component. Lets add some styling to our form. Add the following code to `App.css`
+
+```
+input[type=text] {
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+```
+
+This css selector applies the style to all input fields of type text. Padding changes how tightly the box fits around the text. There is 12px padding vertically and 20px padding horizontally. Margin affects how much room there is between the input box and the surrounding elements.
+
+Next we will style the submit button with similar css attributes.
+
+```
+input[type=button], input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 32px;
+  margin: 4px 2px;
+}
+```
+
+Styling radio buttons is a bit more complicated. Copy and paste the following code into `App.css`
+
+```
+input[type=radio]{
+  -webkit-appearance: none;
+
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+}
+
+input:checked {
+  border: 6px solid black;
+}
+}
+```
+
+### Adding functionality
+As you can see, the page isn't actually functional and clicking submit doesn't do anything. Depending on what you what you want to do with the information, you can handle the form different ways, but I will show you today how to handle with JavaScript.
+
+Change the form to call a js function when submitted.
+
+```
+<form onSubmit={this.handleSubmit}>
+```
+
+Add the following code inside of the Form component, right outside the render block.
+ 
+```
+handleSubmit(event) {
+    event.preventDefault();
+    document.getElementById("submitbutton").style.backgroundColor = "black"
+    document.getElementById("response").innerHTML = "Hello " + document.getElementsByName("firstname")[0].value
+}
+```
+
+Then add a div where the response will show up at the bottom of the form.
+
+```
+<div id="response"></div>
+```
+
+Reload the page, enter your info and press submit. The page should be updated with the button turning black and your name appearing on the bottom.
+
+
+Anyways, that's it for today's lesson. My suggestion is to read through everything we did today to make sure you understand JavaScript, HTML, CSS, and just the general ideas of React components and the structure of the React project because next class we will be making a project.
 
 
 
