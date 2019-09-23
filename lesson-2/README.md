@@ -239,8 +239,33 @@ class Form extends Component {
 
 export default Form;
 ```
-As you can see, we added a form with different types of input tags. Text, radio, and submit are common types of html input tags. 
+As you can see, we added a form with different types of input tags. Text, radio, and submit are common types of html input tags. Navigate to your browser to see what they look like.
  
+### Adding functionality
+As you can see, the page isn't actually functional and clicking submit doesn't do anything. Depending on what you what you want to do with the information, you can handle the form different ways, but I will show you today how to handle form data with JavaScript.
+
+Change the form to call a js function when submitted.
+
+```js
+<form onSubmit={this.handleSubmit}>
+```
+
+Add the following code inside of the Form component, right outside the render block.
+ 
+```js
+handleSubmit(event) {
+    document.getElementById("submitbutton").style.backgroundColor = "black"
+    document.getElementById("response").innerHTML = "Hello " + document.getElementsByName("firstname")[0].value
+}
+```
+
+Then add a div where the response will show up at the bottom of the form.
+
+```js
+<div id="response"></div>
+```
+
+Reload the page, enter your info and press submit. The page should be updated with the button turning black and your name appearing on the bottom.
 
 ### Adding some styling
 
@@ -293,35 +318,7 @@ input[type=radio]{
 input:checked {
   border: 6px solid black;
 }
-}
 ```
-
-### Adding functionality
-As you can see, the page isn't actually functional and clicking submit doesn't do anything. Depending on what you what you want to do with the information, you can handle the form different ways, but I will show you today how to handle with JavaScript.
-
-Change the form to call a js function when submitted.
-
-```js
-<form onSubmit={this.handleSubmit}>
-```
-
-Add the following code inside of the Form component, right outside the render block.
- 
-```js
-handleSubmit(event) {
-    event.preventDefault();
-    document.getElementById("submitbutton").style.backgroundColor = "black"
-    document.getElementById("response").innerHTML = "Hello " + document.getElementsByName("firstname")[0].value
-}
-```
-
-Then add a div where the response will show up at the bottom of the form.
-
-```js
-<div id="response"></div>
-```
-
-Reload the page, enter your info and press submit. The page should be updated with the button turning black and your name appearing on the bottom.
 
 
 Anyways, that's it for today's lesson. My suggestion is to read through everything we did today to make sure you understand JavaScript, HTML, CSS, and just the general ideas of React components and the structure of the React project because next class we will be making a project.
