@@ -213,7 +213,7 @@ You should see the words "Testing form component" on your web page when you navi
 
 Let's add a little more to the form component. Replace the current div tag in `Form.js` with the following code:
 
-```
+```js
 import React, { Component } from 'react';
 
 class Form extends Component {
@@ -246,13 +246,13 @@ As you can see, we added a form with different types of input tags. Text, radio,
 
 If you look at the top of your `App.js` file, you'll see the following line:
 
-```
+```js
 import './App.css';
 ```
 
 This imports the css file called `App.css` and uses it for everything rendered in your App component. Lets add some styling to our form. Add the following code to `App.css`
 
-```
+```css
 input[type=text] {
   padding: 12px 20px;
   margin: 8px 0;
@@ -263,7 +263,7 @@ This css selector applies the style to all input fields of type text. Padding ch
 
 Next we will style the submit button with similar css attributes.
 
-```
+```css
 input[type=button], input[type=submit] {
   background-color: #4CAF50;
   color: white;
@@ -274,7 +274,7 @@ input[type=button], input[type=submit] {
 
 Styling radio buttons is a bit more complicated. Copy and paste the following code into `App.css`
 
-```
+```css
 input[type=radio]{
   -webkit-appearance: none;
 
@@ -301,13 +301,13 @@ As you can see, the page isn't actually functional and clicking submit doesn't d
 
 Change the form to call a js function when submitted.
 
-```
+```js
 <form onSubmit={this.handleSubmit}>
 ```
 
 Add the following code inside of the Form component, right outside the render block.
  
-```
+```js
 handleSubmit(event) {
     event.preventDefault();
     document.getElementById("submitbutton").style.backgroundColor = "black"
@@ -317,7 +317,7 @@ handleSubmit(event) {
 
 Then add a div where the response will show up at the bottom of the form.
 
-```
+```js
 <div id="response"></div>
 ```
 
