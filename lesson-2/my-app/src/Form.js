@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class Form extends Component {
   handleSubmit(event) {
-    event.preventDefault();
     document.getElementById("submitbutton").style.backgroundColor = "black"
     document.getElementById("response").innerHTML = "Hello " + document.getElementsByName("firstname")[0].value
   }

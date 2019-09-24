@@ -178,7 +178,7 @@ class App extends Component {
 
 ### Adding more components
 
-Now lets work with multiple components. Create a file in the `src/` directory of your project called `Title.js`. Insert the following into the file:
+Now lets work with multiple components. Create a file in the `src/` directory of your project called `Form.js`. Insert the following into the file:
 
 ```js
 import React, { Component } from 'react';
