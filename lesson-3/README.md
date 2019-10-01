@@ -103,7 +103,7 @@ Now add the following to `Metronome.css`
 ```
 It should look like this:
 
-[INSERT PICTURE]
+![UI](screenshots/metronome@2x.png)
 
 You won’t be able to change anything yet, because we didn’t implement the onChange handler for the input control. It’s stuck at 100 (the value={bpm}).
 
@@ -216,5 +216,100 @@ class Metronome extends React.Component {
   // ...
 }
 ```
+
+Add a `startStop` function to play a sound, and wire it up to call it from the button’s `onClick` handler:
+
+```js
+class Metronome extends React.Component {
+  // ...
+
+  startStop = () => {
+   this.click1.play();
+  }
+
+  render() {
+    const { playing, bpm } = this.state;
+
+    return (
+      <div className="metronome">
+        <div className="bpm-slider">
+          <div>{bpm} BPM</div>
+          <input
+            type="range"
+            min="60"
+            max="240"
+            value={bpm}
+            onChange={this.handleBpmChange} />
+        </div>
+        {/* Add the onClick handler: */}
+        <button onClick={this.startStop}>
+          {playing ? 'Stop' : 'Start'}
+        </button>
+      </div>
+    );
+  }
+```
+
+When you click the button, it should play a “click”.
+
+Now we will add a timer.
+
+```js
+startStop = () => {
+  if (this.state.playing) {
+    // Stop the timer
+    clearInterval(this.timer);
+    this.setState({
+      playing: false
+    });
+  } else {
+    // Start a timer with the current BPM
+    this.timer = setInterval(
+      this.playClick,
+      (60 / this.state.bpm) * 1000
+    );
+    this.setState(
+      {
+        count: 0,
+        playing: true
+        // Play a click "immediately" (after setState finishes)
+      },
+      this.playClick
+    );
+  }
+};
+```
+
+Here’s how this works:
+
+* If the metronome is playing, stop it by clearing the timer, and setting the playing state to false. This will cause the app to re-render, and the button will say “Start” again.
+* If the metronome is not playing, start a timer that plays a click every few milliseconds, depending on the bpm.
+* If you’ve used a metronome before, you know how the first beat is usually a distinctive sound (“TICK tock tock tock”). We’ll use count to keep track of which beat we’re on, incrementing it with each “click”, so we need to reset it when we start.
+* Calling setInterval will schedule the first “click” to be one beat in the future, and it’d be nice if the metronome started clicking immediately, so the second argument to setState takes care of this. Once the state is set, it will play one click.
+
+The second argument to setState is optional, and if you pass in a function there, React will call that function once the setState is done and the app has been updated.
+
+You’ll notice this doesn’t play a sound, but rather calls out to this.playClick which we haven’t written yet. Here it is:
+
+```js
+playClick = () => {
+  const { count, beatsPerMeasure } = this.state;
+
+  // The first beat will have a different sound than the others
+  if (count % beatsPerMeasure === 0) {
+    this.click2.play();
+  } else {
+    this.click1.play();
+  }
+
+  // Keep track of which beat we're on
+  this.setState(state => ({
+    count: (state.count + 1) % state.beatsPerMeasure
+  }));
+};
+```
+
+
+
 
 
