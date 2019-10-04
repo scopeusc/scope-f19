@@ -5,7 +5,7 @@ In this lesson you will build a simple metronome app.
 Run the following code the create a barebones react app.
 
 ```
-create-react-app react-metronome
+npx create-react-app react-metronome
 ```
 
 After it finishes installing, cd into the folder and start your app.
