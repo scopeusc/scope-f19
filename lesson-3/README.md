@@ -23,11 +23,11 @@ The first thing we’ll do is replace the `App` component with our `Metronome` o
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Metronome from './Metronome';
-import registerServiceWorker from './registerServiceWorker';
+import * as serviceWorker from './serviceWorker';
 import './index.css';
 
 ReactDOM.render(<Metronome />, document.getElementById('root'));
-registerServiceWorker();
+serviceWorker.unregister();
 ```
 
 And then create two new files: `src/Metronome.css`, and `src/Metronome.js`.
