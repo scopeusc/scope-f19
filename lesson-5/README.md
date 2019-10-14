@@ -25,11 +25,11 @@ del *
 cd..
 ```
 
-3. Add a file named `index.css` in the `src/` folder. You can do this by opening up the `tic-tac-toe` project in Atom or your IDE and creating a file through there.
+3. Add a file named `index.css` in the `src/` folder. You can do this by opening up the `calculator-app` project in Atom or your IDE and creating a file through there.
 
 4. Add a file named `index.js` in the `src/` folder.
 
-We will need a total of four components as shown below:
+We will need a total of five components as shown below:
 
 * Calculator: This will be the parent component and will represent the entire Calculator application as a whole.
 * CalculatorTitle: This component will be used to render the title at the top of our application, “React Calculator”.
@@ -37,11 +37,11 @@ We will need a total of four components as shown below:
 * OutputScreenRow: This component will be for the type of output, i.e. input text and calculated result.
 * Button: This component will be for all of the buttons that we have in our application.
 
-Let us now create a new folder named components inside our `src` folder and create four files inside this folder for the components mentioned above. The names of these files will be same as that of component’s name with the first letter as lowercase. Our project directory will look like the below image after creating all files:
+Lets create a new folder named `components` inside our `src` folder and create five files inside this folder for the components mentioned above. The names of these files will be same as that of the component’s name. Our project directory will look like the below image after creating all files:
 
 ![Files](screenshots/components.png)
 
-Lets start out with the Calculator class. After we import the react, we do not need to render anything in this file so we will not import react-dom. We will export the module as default as well. As a member function, we will create a dummy render() function. After the addition, the code will be as below.
+Lets start out with the `Calculator` class. After we import react, we do not need to render anything in this file so we will not import react-dom. We will export the module as default as well. As a member function, we will create a dummy render() function.
 
 ```js 
 import React from 'react'; 
@@ -58,7 +58,7 @@ class Calculator extends React.Component {
 export default Calculator; 
 ```
 
-The Calculator Title component will display the title that will be passed by its parent using props. So for the sake of simplicity, we will be creating a functional component using the thick arrow method. The following will be what the code for `calculatorTitle.js`.
+The `CalculatorTitle` component will display the title be passed by its parent using props. So for the sake of simplicity, we will be creating a functional component using the thick arrow method. The following will be what the code for `calculatorTitle.js`.
 
 ```js
 import React from 'react'; 
@@ -94,7 +94,7 @@ const OutputScreenRow = () => {
 export default OutputScreenRow; 
 ```
 
-Our `OutputScreen` will consist of two `OutputScreenRow`s. So we will be importing React and the `OutputScreenRow` component we just created. We will add a `render` function that will consist of two `OutputScreenRow` components. After the coding is complete the file `OutputScreen.js` will look like this.
+Our `OutputScreen` will consist of two `OutputScreenRow`s. So we will be importing the `OutputScreenRow` component we just created. We will add a `render` function that will consist of two `OutputScreenRow` components. 
 
 ```js
 import React from 'react'; 
@@ -115,7 +115,7 @@ const OutputScreen = () => {
 export default OutputScreen; 
 ```
 
-Now that we have created the screen part what is left is the Keypad. The keypad will be a set of Buttons. Now, this Buttons each will be independent components thus now we require to develop the Button component. Use the following code:
+Now that we have created the screen part, what is left is the Keypad. The keypad will be a set of `Button`s. Each  `Button` will be an independent component. Use the following code:
 
 ```js
 import React from 'react'; 
@@ -133,7 +133,7 @@ const Button = (props) => {
 export default Button; 
 ```
 
-Now that we have completed developing the smaller components, we will assemble the app to look more like a calculator. Go back to the `Calculator.js` file we created and update the render function accordingly. We will add the title of the calculator and the OutputScreen component. For our Keypad, we will be using rows of Buttons. Thus we need to import the user-defined components CalculatorTitle, OutputScreen, and Button. After updating, the file calculator.js will look like the following.
+Now that we have completed developing the smaller components, we will assemble the app to look more like a calculator. Go back to the `Calculator.js` file we created and update the render function. We will add the `CalculatorTitle`, the `OutputScreen` component, and rows of `Button`s. Thus we need to import the necessary components. After updating, the file `Calculator.js` will look like the following.
 
 ```js
 // Imports. 
@@ -147,38 +147,38 @@ class Calculator extends React.Component {
     { 
     return ( 
     <div className="frame"> 
-    <CalculatorTitle value="React Calculator"/> 
-    <div class="mainCalc"> 
-    <OutputScreen/> 
-    <div className="button-row"> 
-      <Button label={'Clear'}/> 
-      <Button label={'Delete'}/> 
-      <Button label={'.'}/> 
-      <Button label={'/'}/> 
-    </div> 
-    <div className="button-row"> 
-      <Button label={'7'}/> 
-      <Button label={'8'}/> 
-      <Button label={'9'}/> 
-      <Button label={'*'}/> 
-    </div> 
-    <div className="button-row"> 
-      <Button label={'4'}/> 
-      <Button label={'5'}/> 
-      <Button label={'6'}/> 
-      <Button label={'-'}/> 
-    </div> 
-    <div className="button-row"> 
-      <Button label={'1'}/> 
-      <Button label={'2'}/> 
-      <Button label={'3'}/> 
-      <Button label={'+'}/> 
-    </div> 
-    <div className="button-row"> 
-      <Button label={'0'}/> 
-      <Button label={'='}/> 
-    </div> 
-    </div> 
+	    <CalculatorTitle value="React Calculator"/> 
+	    <div class="mainCalc"> 
+		    <OutputScreen/> 
+		    <div className="button-row"> 
+		      <Button label={'Clear'}/> 
+		      <Button label={'Delete'}/> 
+		      <Button label={'.'}/> 
+		      <Button label={'/'}/> 
+		    </div> 
+		    <div className="button-row"> 
+		      <Button label={'7'}/> 
+		      <Button label={'8'}/> 
+		      <Button label={'9'}/> 
+		      <Button label={'*'}/> 
+		    </div> 
+		    <div className="button-row"> 
+		      <Button label={'4'}/> 
+		      <Button label={'5'}/> 
+		      <Button label={'6'}/> 
+		      <Button label={'-'}/> 
+		    </div> 
+		    <div className="button-row"> 
+		      <Button label={'1'}/> 
+		      <Button label={'2'}/> 
+		      <Button label={'3'}/> 
+		      <Button label={'+'}/> 
+		    </div> 
+		    <div className="button-row"> 
+		      <Button label={'0'}/> 
+		      <Button label={'='}/> 
+		    </div> 
+	    </div> 
     </div> 
     ); 
   } 
@@ -187,7 +187,7 @@ class Calculator extends React.Component {
 export default Calculator; 
 ```
 
-So far we have created all the components and stacked them together to create the basic structure. Now we just need to import the calculator in the index.js file and render in there. So we will need to import react and react-dom and we will use the render method of ReactDOM to render the calculator component. The index.js file’s contents are shown below.
+So far we have created all the components and stacked them together to create the basic structure. Now we just need to import the calculator in the `index.js` file and render in there. We will need to import react and react-dom and we will use the render method of ReactDOM to render the calculator component. The `index.js` file’s contents are shown below.
 
 ```js
 import React from 'react'; 
@@ -203,9 +203,9 @@ If you run `npm start` and open up localhost:3000, you should get something that
 
 ![UI](screenshots/barebone.png)
 
-You can see that if you click the buttons for now then nothing is getting typed on the screen. Now we have to implement the working logic of this calculator.
+If you click the buttons nothing is getting typed on the screen. Now we have to implement the working logic of this calculator.
 
-To handle the click events, we will create a new function named `handleClick` and will add this function to our Calculator component class. But, the next thing to observe is that the buttons from “0-9” and operators like “+,-,*,/” will have different roles. So, what we can do is inside the `handleClick` function we will use a `switch..case` statement to perform different operations on clicking different buttons.
+To handle the click events, we will create a new function named `handleClick` and will add this function to our Calculator component class. But, you can see that the buttons from “0-9” and operators like “+,-,*,/” will have different roles. So, what we can do is inside the `handleClick` function we will use a `switch..case` statement to perform different operations on clicking different buttons.
 
 We need to create two states for our Calculator application and we will update these two states according to the user inputs. The two states that we need are:
  
@@ -232,9 +232,9 @@ constructor() {
   } 
 ```
 
-Since now we have created our states to store the user input and answers. Let’s just complete our handleClick function to update these states according to different button clicks.
+Since now we have created our states to store the user input and answers. Let’s just complete our `handleClick` function to update these states according to different button clicks.
 
-Add the below function to the class Calculator in the `Calculator.js` file:
+Add the below function to the `Calculator` class in the `Calculator.js` file:
 
 ```js
 // our method to handle all click events from our buttons 
@@ -286,7 +286,7 @@ handleClick(event){
  
   default: { 
  
-      // for every other command, update the answer in the state 
+      // for every other command, update the question in the state 
       this.setState({ question: this.state.question += value}) 
       break; 
     } 
@@ -294,7 +294,7 @@ handleClick(event){
 } 
 ```
 
-Now, we are completed with adding all functionalities but still, if we click the buttons of our Calculator app in the browser, nothing will happen. The reason behind this is we have not linked our handleClick function with the button’s onClick attribute in our Button component in the button.js file. To do so, we will pass the handleClick function as props to the Button component and assign this function to the button’s onClick event in Button component.
+Now, we are done with adding all functionalities but still, if we click the buttons in the browser, nothing will happen. The reason is because we have not linked our `handleClick` function with the button’s `onClick` attribute in our `Button` component. To do so, we will pass the `handleClick` function as props to the `Button` component and assign this function to the button’s `onClick` event.
 
 In the Calculator component, add the following line to every Button component:
 
@@ -306,15 +306,15 @@ The Calculator classs should look like this:
 
 ![Button](screenshots/buttons.png)
 
-After adding this, we will go to the button.js file, and add the below attribute to the input field:
+After adding this, we will go to the `Button.js` file, and add the below attribute to the input field:
 
 ```js
 onClick = {props.handleClick}
 ```
 
-We still have not passed the states to the OutputScreen component. So our OutputScreen component has nothing to render on screen. So, let’s update our OutputScreen and OutputScreenRow components to accept props and pass the question and answer states from Calculator component to the OutputScreen component as props.
+We still have not passed the states to the `OutputScreen` component. So our `OutputScreen` component has nothing to render on screen. So, let’s update our `OutputScreen` and `OutputScreenRow` components to accept props and pass the question and answer states from `Calculator` component to the `OutputScreen` component.
 
-Find the OutputScreen tag in `Calculator.js` and change it to pass question and answer.
+Find the `OutputScreen` tag in `Calculator.js` and change it to pass question and answer.
 
 ```js
 <OutputScreen question={this.state.question} answer = {this.state.answer}/>
