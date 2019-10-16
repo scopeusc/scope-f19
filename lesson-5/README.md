@@ -12,7 +12,7 @@ npx create-react-app calculator-app
 2. Delete all files in the src/ folder of the new project, but keep the src/ folder
 
 ```
-cd tic-tac-toe
+cd calculator-app
 cd src
 
 #if you're using Mac or Linux
