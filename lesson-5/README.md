@@ -326,7 +326,7 @@ Below is our final `OutputScreen.js` file:
 ```js
 import React from 'react';   
 // Import Output Screen Row. 
-import OutputScreenRow from './outputScreenRow.js'; 
+import OutputScreenRow from './OutputScreenRow.js'; 
   
 // Functional Component. 
 // Use to hold two Screen Rows. 
