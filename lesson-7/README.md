@@ -12,7 +12,7 @@ We will be building a mini interactive portfolio website using jQuery and BootSt
 
 3. Inside `index.html`, type the following code. You can run your code by clicking on the `index.html` file and the system will direct you to the web page you defined. 
 
-```
+```js
 <!DOCTYPE html>
 <html>  
 <head>
