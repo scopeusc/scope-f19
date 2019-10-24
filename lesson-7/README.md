@@ -1,12 +1,12 @@
 # Lesson #7: Making Interactive Portfolio Part I
-We will be building a mini interactive portfolio website using jQuery and BootStrap within Javascript
+We will be building a mini interactive portfolio website using jQuery and Bootstrap within Javascript
 
 ## Setup
 
 1. We will first create a folder named `myPortfolio`.
 
 
-2. Open your myPorfolio using any editor of your choice and create a file named  `index.html`.
+2. Open your `myPortfolio` using any editor of your choice and create a file named  `index.html`.
 
 
 3. Inside `index.html`, type the following code. You can run your code by clicking on the `index.html` file and the system will direct you to the web page you defined. 
@@ -35,7 +35,7 @@ We add jQuery by using the following cdn link:
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 ```
-5. Our next step is to add Bootstrap into our current project. We will download [Bootstrap](https://getbootstrap.com/). We then copy the following CDN:
+5. Our next step is to add Bootstrap into our current project. We will download [Bootstrap](https://getbootstrap.com/) by copying the following CDN:
 
 ```js
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
