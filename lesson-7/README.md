@@ -12,7 +12,7 @@ We will be building a mini interactive portfolio website using jQuery and BootSt
 
 3. Inside `index.html`, type the following code. You can run your code by clicking on the `index.html` file and the system will direct you to the web page you defined. 
 
-```
+```js
 <!DOCTYPE html>
 <html>  
 <head>
@@ -30,35 +30,24 @@ You should be able to see "Hello World!" on your website when you are done with 
 
 4. Now we will be adding jQuery to our project. jQuery is a JavaScript library and you can read more about it [here](https://www.w3schools.com/jquery/jquery_intro.asp).
 
-
-We will need a total of five components as shown below:
-
-* Calculator: This will be the parent component and will represent the entire Calculator application as a whole.
-* CalculatorTitle: This component will be used to render the title at the top of our application, “React Calculator”.
-* OutputScreen: This Component will be for all of the text shown on the screen.
-* OutputScreenRow: This component will be for the type of output, i.e. input text and calculated result.
-* Button: This component will be for all of the buttons that we have in our application.
-
-Lets create a new folder named `components` inside our `src` folder and create five files inside this folder for the components mentioned above. The names of these files will be same as that of the component’s name. Our project directory will look like the below image after creating all files:
-
-![Files](screenshots/components.png)
-
-Lets start out with the `Calculator` class. After we import react, we do not need to render anything in this file so we will not import react-dom. We will export the module as default as well. As a member function, we will create a dummy render() function.
-
-```js 
-import React from 'react'; 
-  
-// Create a Class Component Calculator. 
-class Calculator extends React.Component { 
-    render() 
-    { 
-        return "React Calculator"; 
-    } 
-} 
-  
-// Export Calculator. 
-export default Calculator; 
+We add jQuery by using the following cdn link: 
+```js
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
 ```
+5. Our next step is to add Bootstrap into our current project. We will download [Bootstrap](https://getbootstrap.com/) by clicking on the download icon. We then copy the following CDN:
+
+```js
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+```
+add them to our code where the ```js <link>```  is directly below ```js <title>``` .
+
+
+
 
 The `CalculatorTitle` component will display the title be passed by its parent using props. So for the sake of simplicity, we will be creating a functional component using the thick arrow method. The following will be what the code for `calculatorTitle.js`.
 
