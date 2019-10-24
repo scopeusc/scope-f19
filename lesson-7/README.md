@@ -1,10 +1,9 @@
-# Lesson #7: Making Interactive Portfolio
+# Lesson #7: Making Interactive Portfolio Part I
 We will be building a mini interactive portfolio website using jQuery and BootStrap within Javascript
 
 ## Setup
 
-1. We will first create a folder named myPortfolio.
-
+1. We will first create a folder named `myPortfolio`.
 
 
 2. Open your myPorfolio using any editor of your choice and create a file named  `index.html`.
@@ -36,321 +35,184 @@ We add jQuery by using the following cdn link:
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 ```
-5. Our next step is to add Bootstrap into our current project. We will download [Bootstrap](https://getbootstrap.com/) by clicking on the download icon. We then copy the following CDN:
+5. Our next step is to add Bootstrap into our current project. We will download [Bootstrap](https://getbootstrap.com/). We then copy the following CDN:
 
 ```js
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 ```
-add them to our code where the ```js <link>```  is directly below ```js <title>``` .
-
-
-
-
-The `CalculatorTitle` component will display the title be passed by its parent using props. So for the sake of simplicity, we will be creating a functional component using the thick arrow method. The following will be what the code for `calculatorTitle.js`.
+add them to our code where `<link>`  is directly below `<title>`  and `<script>` is directly above `</body>`. Your code should look like this: 
 
 ```js
-import React from 'react'; 
-  
-// Create Functional Component. 
-// Takes title as props.value. 
-const CalculatorTitle = (props) => { 
-  return ( 
-    <div className="calculator-title"> 
-      { props.value }  
-    </div> 
-  ) 
-} 
-  
-export default CalculatorTitle; 
-```
 
-Now, we will work with the output screen and the component `OutputScreenRow`. For the screen row, we will be using an input field and make it readOnly so that the user can’t modify the value.
+<!DOCTYPE html>
+<html>  
+<head>
 
-```js
-import React from 'react'; 
-  
-// Functional Component. 
-// Used to show Question/Answer. 
-const OutputScreenRow = () => { 
-  return ( 
-    <div className="screen-row"> 
-      <input type="text" readOnly/> 
-    </div> 
-  ) 
-} 
-  
-export default OutputScreenRow; 
-```
 
-Our `OutputScreen` will consist of two `OutputScreenRow`s. So we will be importing the `OutputScreenRow` component we just created. We will add a `render` function that will consist of two `OutputScreenRow` components. 
+<title>My Portfolio</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-```js
-import React from 'react'; 
-// Import Output Screen Row. 
-import OutputScreenRow from './OutputScreenRow.js'; 
-  
-// Functional Component. 
-// Use to hold two Screen Rows. 
-const OutputScreen = () => { 
-  return ( 
-    <div className="screen"> 
-      <OutputScreenRow/> 
-      <OutputScreenRow/> 
-    </div> 
-  ) 
-} 
-  
-export default OutputScreen; 
-```
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+Hello World!
 
-Now that we have created the screen part, what is left is the Keypad. The keypad will be a set of `Button`s. Each  `Button` will be an independent component. Use the following code:
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
-```js
-import React from 'react'; 
-  
-// Create our Button component as a functional component. 
-const Button = (props) => { 
-  return ( 
-    <input 
-      type="button"
-      value={props.label} 
-    /> 
-  ); 
-} 
-  
-export default Button; 
-```
-
-Now that we have completed developing the smaller components, we will assemble the app to look more like a calculator. Go back to the `Calculator.js` file we created and update the render function. We will add the `CalculatorTitle`, the `OutputScreen` component, and rows of `Button`s. Thus we need to import the necessary components. After updating, the file `Calculator.js` will look like the following.
-
-```js
-// Imports. 
-import React from 'react'; 
-import CalculatorTitle from './CalculatorTitle.js'; 
-import OutputScreen from './OutputScreen.js'; 
-import Button from './Button.js'; 
-  
-class Calculator extends React.Component { 
-    render() 
-    { 
-    return ( 
-    <div className="frame"> 
-	    <CalculatorTitle value="React Calculator"/> 
-	    <div class="mainCalc"> 
-		    <OutputScreen/> 
-		    <div className="button-row"> 
-		      <Button label={'Clear'}/> 
-		      <Button label={'Delete'}/> 
-		      <Button label={'.'}/> 
-		      <Button label={'/'}/> 
-		    </div> 
-		    <div className="button-row"> 
-		      <Button label={'7'}/> 
-		      <Button label={'8'}/> 
-		      <Button label={'9'}/> 
-		      <Button label={'*'}/> 
-		    </div> 
-		    <div className="button-row"> 
-		      <Button label={'4'}/> 
-		      <Button label={'5'}/> 
-		      <Button label={'6'}/> 
-		      <Button label={'-'}/> 
-		    </div> 
-		    <div className="button-row"> 
-		      <Button label={'1'}/> 
-		      <Button label={'2'}/> 
-		      <Button label={'3'}/> 
-		      <Button label={'+'}/> 
-		    </div> 
-		    <div className="button-row"> 
-		      <Button label={'0'}/> 
-		      <Button label={'='}/> 
-		    </div> 
-	    </div> 
-    </div> 
-    ); 
-  } 
-} 
-   
-export default Calculator; 
-```
-
-So far we have created all the components and stacked them together to create the basic structure. Now we just need to import the calculator in the `index.js` file and render in there. We will need to import react and react-dom and we will use the render method of ReactDOM to render the calculator component. The `index.js` file’s contents are shown below.
-
-```js
-import React from 'react'; 
-import ReactDOM from 'react-dom'; 
-import Calculator from './components/Calculator.js'; 
-  
-// Render the Calculator to the Web page. 
-ReactDOM.render(<Calculator />, document.getElementById('root')); 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
 
 ```
 
-If you run `npm start` and open up localhost:3000, you should get something that looks like this:
+5. With the setup out of the way, we can finally move on to the exciting part. We will incorporate superslide into our project by visiting this [github page](https://github.com/nicinabox/superslides). 
 
-![UI](screenshots/barebone.png)
+We will download the repo as a zipfile. The only file that we need is  `jquery.superslides.min.js`  inside `dist` so drag it out :D . 
 
-If you click the buttons nothing is getting typed on the screen. Now we have to implement the working logic of this calculator.
+6. Lets make another folder under  `myPortfolio` and name it `js`. We will then drag `jquery.superslides.min.js` into this folder. 
 
-To handle the click events, we will create a new function named `handleClick` and will add this function to our Calculator component class. But, you can see that the buttons from “0-9” and operators like “+,-,*,/” will have different roles. So, what we can do is inside the `handleClick` function we will use a `switch..case` statement to perform different operations on clicking different buttons.
 
-We need to create two states for our Calculator application and we will update these two states according to the user inputs. The two states that we need are:
- 
+7. We will then make another folder `css` under `myPortfolio`. We will go back to the superslides repo we downloaded
 
-* question: Initially this state will be initialized with an empty string. This state will be used to store the user input.
-* answer: Initially this state will be initialized with an empty string. This state will be used to store the result of the evaluation of user input stored in the state question.
+from github and drag out `superslides.css` inside `stylesheets` into our own `css` folder. 
 
-Add the below code at the top of the `Calculator` class. This code will create the required states for us:
+
+8. Now we need to create reference to the files we recently added to our folder. We can create file reference to the css file by typing the following: 
 
 ```js
-constructor() { 
-    super(); 
-  
-    // set our default state 
-    this.state = { 
-      question: '', 
-      answer: ''
-    } 
-  
-    // Bind our handleClick method (sets 'this' explicitly 
-    // to refer to this componenent) We did this because 'this' 
-    // would refer to the source of the click events 
-    this.handleClick = this.handleClick.bind(this); 
-  } 
+
+<title>My Portfolio</title>
+<link rel = "stylesheet" type = "text/css" href = "css/superslides.css">
+...
+
+```
+We also need to create a reference for the superslides Javascript file 
+
+```js
+
+<script src = "js/jquery.superslides.min.js"></script>
+
+
 ```
 
-Since now we have created our states to store the user input and answers. Let’s just complete our `handleClick` function to update these states according to different button clicks.
-
-Add the below function to the `Calculator` class in the `Calculator.js` file:
+Now your code should look something like this: 
 
 ```js
-// our method to handle all click events from our buttons 
-handleClick(event){ 
- 
-  // get the value from the target element (button) 
-  const value = event.target.value; 
- 
-  switch (value) { 
-    case '=': { 
- 
-      // if it's an equal sign, use the eval module 
-      // to evaluate the question ,convert the answer 
-      // (in number) to String 
-      if (this.state.question!=='') 
-      { 
-          var ans=''; 
-            try
-              { 
-                  ans = eval(this.state.question); 
-              } 
-              catch(err) 
-              { 
-                  this.setState({answer: "Math Error"}); 
-              } 
-              if (ans===undefined) 
-                  this.setState({answer: "Math Error"}); 
- 
-              // update answer in our state. 
-              else
-                  this.setState({ answer: ans , question: ''}); 
-              break; 
-          } 
-    } 
-    case 'Clear': { 
- 
-      // if it's the Clears sign, just clean our  
-      // question and answer in the state 
-      this.setState({ question: '', answer: '' }); 
-      break; 
-    } 
- 
-    case 'Delete': { 
-      var str = this.state.question; 
-        str = str.substr(0,str.length-1); 
-        this.setState({question: str}); 
-        break; 
-    } 
- 
-  default: { 
- 
-      // for every other command, update the question in the state 
-      this.setState({ question: this.state.question += value}) 
-      break; 
-    } 
-  } 
-} 
+
+<!DOCTYPE html>
+<html>  
+<head>
+
+
+<title>My Portfolio</title>
+<link rel = "stylesheet" type = "text/css" href = "css/superslides.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+Hello World!
+<button>Iron Man</button>
+
+<script src = "js/jquery.superslides.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
 ```
 
-Now, we are done with adding all functionalities but still, if we click the buttons in the browser, nothing will happen. The reason is because we have not linked our `handleClick` function with the button’s `onClick` attribute in our `Button` component. To do so, we will pass the `handleClick` function as props to the `Button` component and assign this function to the button’s `onClick` event.
-
-In the Calculator component, add the following line to every Button component:
+9. Now we can finally start using superslides in our own code, we will create the following div inside <body>:
 
 ```js
-handleClick = {this.handleClick}
+
+    <div id="slides">
+    <div class="slides-container">
+    <img src="http://via.placeholder.com/350x150" alt="">
+    <img src="http://via.placeholder.com/350x150" alt="">
+    </div>
+    </div>
 ```
+This is basically saying that we are creating an instance of image slider of two images, where currently both images are just
 
-The Calculator classs should look like this:
+two image placeholders. 
 
-![Button](screenshots/buttons.png)
+10. Before our website can display the image slider, we need to initialize the slider first. We do this by creating
 
-After adding this, we will go to the `Button.js` file, and add the below attribute to the input field:
+a new file called `script.js` in the folder `js`. 
 
-```js
-onClick = {props.handleClick}
-```
-
-We still have not passed the states to the `OutputScreen` component. So our `OutputScreen` component has nothing to render on screen. So, let’s update our `OutputScreen` and `OutputScreenRow` components to accept props and pass the question and answer states from `Calculator` component to the `OutputScreen` component.
-
-Find the `OutputScreen` tag in `Calculator.js` and change it to pass question and answer.
+11. We need to again refer to this file by adding:
 
 ```js
-<OutputScreen question={this.state.question} answer = {this.state.answer}/>
+
+<script src="js/script.js"></script>
+</body>
+
 ```
 
 
-Below is our final `OutputScreen.js` file:
+
+12. Inside script.js, wee need to add the following: 
+
 
 ```js
-import React from 'react';   
-// Import Output Screen Row. 
-import OutputScreenRow from './OutputScreenRow.js'; 
-  
-// Functional Component. 
-// Use to hold two Screen Rows. 
-const OutputScreen = (props) => { 
-  return ( 
-    <div className="screen"> 
-      <OutputScreenRow value = {props.question}/> 
-      <OutputScreenRow value = {props.answer}/> 
-    </div> 
-  ) 
-} 
-  
-export default OutputScreen; 
-```
 
-Below is our final `OutputScreenRow.js` file:
+$(document).ready(function(){
+$('#slides').superslides()
+
+});
+
+```
+The syntax may look a little scary but essentially what it does is the program will execute the function before 
+
+the webpage loads, and the function is calling the initializing function of image slide. 
+
+13. Now your code should look like thw following: 
 
 ```js
-import React from 'react'; 
 
-// Functional Component. 
-// Used to show Question/Answer. 
-const OutputScreenRow = (props) => { 
-  return ( 
-    <div className="screen-row"> 
-      <input type="text" readOnly value = {props.value}/> 
-    </div> 
-  ) 
-} 
-   
-export default OutputScreenRow; 
+<!DOCTYPE html>
+<html>  
+<head>
+
+
+<title>My Portfolio</title>
+<link rel = "stylesheet" type = "text/css" href = "css/superslides.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="slides">
+<div class="slides-container">
+<img src="http://via.placeholder.com/350x150" alt="">
+<img src="http://via.placeholder.com/350x150" alt="">
+</div>
+</div>
+
+<script src = "js/jquery.superslides.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
+
+
+
 ```
 
-Now we've successfully created a fully functional calculator application using React.
+14. We will conclude today's lesson by adding our own preferred images into the slider instead of using the 
 
-If you want to add some styling, follow [this](https://www.geeksforgeeks.org/reactjs-calculator-app-styling/) article.
+image placeholders. Try this part on your OWN :D :D :D :D :D 
+
+HINT: what happens if we replace `http://via.placeholder.com/350x150` with reference to the location of the images we want to add? 
+
+
