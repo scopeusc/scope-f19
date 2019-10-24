@@ -1,29 +1,14 @@
-# Lesson #5: Calculator App
-In this lesson we will continue learning more about React by building a calculator application.
+# Lesson #7: Making Interactive Portfolio
+We will be building a mini interactive portfolio website using JQuery and BootStrap within Javascript
 
 ## Setup
 
-1. Install another version of `create-react-app` by typing the following command.
+1. We will first create a folder named myPortfolio.
 
-```
-npx create-react-app calculator-app
-```
 
-2. Delete all files in the src/ folder of the new project, but keep the src/ folder
 
-```
-cd calculator-app
-cd src
+2. Open your myPorfolio using any editor of your choice and create a file named  `index.html`.
 
-#if you're using Mac or Linux
-rm -f *
-
-#if you're using Windows
-del *
-
-#switch back to project folder
-cd..
-```
 
 3. Add a file named `index.css` in the `src/` folder. You can do this by opening up the `calculator-app` project in Atom or your IDE and creating a file through there.
 
