@@ -8,8 +8,8 @@ This is the Scope Spring 2019 GitHub curriculum repository! Here you'll find pro
 * [**Lesson 3**](lesson-3) - Metronome React Project
 * [**Lesson 4**](lesson-4) - Tic Tac Toe React Project
 * [**Lesson 5**](lesson-5) - Final React Project
-* [**Lesson 6**](lesson-6) - Building Portfolio Part I
-* [**Lesson 7**](lesson-7) - Building Portfolio Part II
+* [**Lesson 6**](lesson-6) - Making Interactive Portfolio Part I
+* [**Lesson 7**](lesson-7) - Making Interactive Portfolio Part II
 
 ### Using This Repo
 To use this repo properly, first follow [lesson 1](lesson-1/README.md) to get Git, Node, React, and the right environment setup on your machine.
