@@ -1,4 +1,4 @@
-# Lesson #7: Making Interactive Portfolio Part I
+# Lesson #6: Making Interactive Portfolio Part I
 We will be building a mini interactive portfolio website using jQuery and Bootstrap within Javascript
 
 ## Setup
